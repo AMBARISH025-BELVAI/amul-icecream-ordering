@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Amul Ice Cream | QR Ordering Demo</title>
+<style>
+:root{--red:#e31837;--blue:#0646b8;--navy:#10263d;--cream:#fff7ed;--ink:#172033;--muted:#64748b;--line:#e5e7eb;--green:#15803d}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);background:#f5f7fb}button,input,select{font:inherit}button{cursor:pointer;border:0}.top{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:4}.topin{max-width:1100px;margin:auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:950;font-size:24px;color:var(--red);letter-spacing:-1px;line-height:1}.brand small{display:block;font-size:10px;color:var(--blue);letter-spacing:2px;text-align:center}.nav{display:flex;gap:8px}.nav button,.secondary{background:white;border:1px solid var(--line);padding:10px 14px;border-radius:12px;font-weight:700}.nav button.active,.primary{background:var(--red);color:white;border-color:var(--red)}.wrap{max-width:1100px;margin:24px auto;padding:0 20px}.hero{border-radius:24px;padding:28px;background:linear-gradient(115deg,#fff0f2,#fff 54%,#eaf2ff);display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center;overflow:hidden}.eyebrow{font-size:12px;letter-spacing:1.8px;color:var(--red);font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.02;margin:12px 0}.hero p{color:var(--muted);max-width:530px;line-height:1.65}.hero-art{font-size:100px;text-align:center;filter:drop-shadow(0 15px 14px #9ca3af55)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.primary,.secondary{padding:12px 16px;border-radius:12px;font-weight:800}.blue{background:var(--blue);color:white}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-top:18px}.product,.panel,.stat{background:white;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 4px 16px #0f172a08}.product .pic{height:110px;border-radius:14px;background:linear-gradient(135deg,#fff3df,#ffe4ea);display:grid;place-items:center;font-size:60px;margin-bottom:12px}.product h3{margin:3px 0 5px;font-size:16px}.muted{color:var(--muted);font-size:13px}.price{font-weight:900;font-size:19px;margin:10px 0}.productrow{display:flex;align-items:center;justify-content:space-between;gap:8px}.add{background:var(--red);color:white;border-radius:10px;padding:9px 13px;font-weight:800}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:26px 0 12px}.sectionhead h2{margin:0;font-size:24px}.pill{font-size:12px;border-radius:99px;padding:6px 10px;background:#eff6ff;color:var(--blue);font-weight:800}.filters{display:flex;gap:8px;overflow:auto;margin:15px 0}.filters button{background:white;border:1px solid var(--line);padding:8px 13px;border-radius:99px;white-space:nowrap}.filters button.active{background:var(--navy);color:white}.hidden{display:none!important}.layout{display:grid;grid-template-columns:1fr 330px;gap:18px}.cartline{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.qty{display:flex;align-items:center;gap:8px}.qty button{width:25px;height:25px;border-radius:7px;background:#f1f5f9;font-weight:900}.total{display:flex;justify-content:space-between;padding:8px 0}.total.final{font-size:20px;font-weight:950;border-top:1px solid var(--line);margin-top:6px;padding-top:14px}.field{display:grid;gap:6px;margin:12px 0}.field input,.field select{border:1px solid #cbd5e1;border-radius:10px;padding:11px;background:white;width:100%}.paymenttabs{display:flex;gap:8px;margin:14px 0}.paymenttabs button{flex:1;padding:10px;border:1px solid var(--line);background:white;border-radius:10px;font-weight:800}.paymenttabs button.active{background:#eaf2ff;border-color:var(--blue);color:var(--blue)}.fakeqr{width:150px;height:150px;border:8px solid white;outline:1px solid var(--line);margin:16px auto;background:repeating-conic-gradient(#111 0% 25%,white 0% 50%) 0 0/14px 14px;display:grid;place-items:center}.fakeqr span{background:white;padding:7px;font-size:11px;font-weight:900}.notice{padding:12px;border-radius:12px;background:#fff7ed;color:#9a3412;font-size:13px;line-height:1.5}.success{background:#f0fdf4;color:#166534;padding:16px;border-radius:14px;text-align:center}.adminbar{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.adminbar button{padding:10px 13px;border-radius:10px;background:#edf2f7;font-weight:800}.adminbar button.active{background:var(--navy);color:white}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat strong{display:block;font-size:25px;margin-top:8px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted);font-size:12px;text-transform:uppercase}.status{background:#dcfce7;color:#166534;border-radius:99px;padding:5px 8px;font-size:12px;font-weight:800}.foot{text-align:center;color:var(--muted);font-size:12px;padding:30px 10px}.modalbg{position:fixed;inset:0;background:#0f172acc;z-index:10;display:grid;place-items:center;padding:18px}.modal{background:white;border-radius:20px;padding:24px;max-width:480px;width:100%;max-height:90vh;overflow:auto}.modal h2{margin-top:0}.close{float:right;background:#f1f5f9;border-radius:9px;padding:7px 10px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--navy);color:white;padding:12px 18px;border-radius:12px;z-index:20;box-shadow:0 10px 30px #0003}.admin-product-form{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;margin:14px 0}.admin-product-form input{min-width:0;padding:10px;border:1px solid var(--line);border-radius:9px}
+@media(max-width:780px){.hero{grid-template-columns:1fr}.hero-art{font-size:70px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.nav button{padding:9px;font-size:12px}.topin{padding:12px}.admin-product-form{grid-template-columns:1fr 1fr}.admin-product-form input:first-child{grid-column:span 2}}@media(max-width:420px){.cards{gap:9px}.product{padding:10px}.product .pic{height:85px;font-size:48px}.wrap{padding:0 12px}.hero{padding:20px}.brand{font-size:21px}}
+</style></head>
+<body>
+<header class="top"><div class="topin"><div class="brand">Amul <small>ICE CREAM</small></div><div class="nav"><button id="homeNav" class="active" onclick="showView('home')">Home</button><button id="shopNav" onclick="showView('shop')">Customer Menu</button><button id="adminNav" onclick="showView('admin')">Admin Panel</button></div></div></header>
+<main class="wrap" id="homeView">
+<section class="hero" style="grid-template-columns:1fr;max-width:760px;margin:24px auto;text-align:center">
+<div>
+<div class="eyebrow">WELCOME • SCAN • CHOOSE • ENJOY</div>
+<h1>AMUL ICE CREAM<br><span style="color:var(--red)">A Treat for Every Celebration</span></h1>
+<p>Choose how you would like to continue.</p>
+<div class="actions" style="justify-content:center;flex-wrap:wrap">
+<button class="primary" style="min-width:220px;padding:18px" onclick="showView('shop')">ICE CREAM MENU</button>
+<button class="primary blue" style="min-width:220px;padding:18px" onclick="openDirectPayment()">DIRECT PAYMENT</button>
+</div>
+</div><div class="hero-art">🍦 🍨 🍧</div>
+</section>
+</main>
+<main class="wrap hidden" id="shopView">
+<section class="hero"><div><div class="eyebrow">Scan • Choose • Enjoy</div><h1>Real joy.<br><span style="color:var(--red)">One scoop away.</span></h1><p>Browse your favourite ice creams, place an order for pickup, or make a direct payment for an in-store purchase.</p><div class="actions"><button class="primary" onclick="document.getElementById('menuSection').scrollIntoView({behavior:'smooth'})">🍦 Ice Cream Menu</button><button class="primary blue" onclick="openDirectPayment()">₹ Direct Payment</button></div></div><div class="hero-art">🍦 🍨 🍧</div></section>
+<div class="sectionhead" id="menuSection"><div><div class="eyebrow">Made for your cravings</div><h2>Explore the menu</h2></div><span class="pill" id="itemCount">5 treats</span></div>
+<div class="filters" id="filters"><button class="active" onclick="filterProducts('All',this)">All</button><button onclick="filterProducts('Cornet',this)">Cornet</button><button onclick="filterProducts('Candy',this)">Candy</button><button onclick="filterProducts('Dolly',this)">Dolly</button><button onclick="filterProducts('Bars',this)">Chocobar & Frostik</button><button onclick="filterProducts('Cups',this)">Cups</button><button onclick="filterProducts('Other',this)">Others</button><button onclick="filterProducts('Desserts',this)">Gudbud & Cassata</button></div>
+<div class="layout"><div><div class="cards" id="products"></div></div><aside class="panel"><div class="sectionhead" style="margin:0 0 8px"><h2>🛒 Your order</h2><span class="pill" id="cartCount">0 items</span></div><div id="cartItems"><p class="muted">Your cart is empty. Add a treat to get started!</p></div><div class="total"><span>Subtotal</span><strong id="subtotal">₹0</strong></div><div class="total"><span>Taxes</span><strong id="taxes">₹0</strong></div><div class="total final"><span>Total</span><strong id="grandTotal">₹0</strong></div><button class="primary" style="width:100%;margin-top:10px" onclick="checkout()">Proceed to Order & Pay →</button><p class="muted">Order is for in-store pickup. Confirm availability with staff.</p></aside></div>
+</main>
+<main class="wrap hidden" id="adminView"><section class="hero" style="grid-template-columns:1fr .4fr"><div><div class="eyebrow">Store management</div><h1>Admin <span style="color:var(--red)">Dashboard</span></h1><p>Manage the sample menu, stock and customer orders from one place.</p></div><div class="hero-art">📊</div></section><div class="adminbar"><button class="active" onclick="adminTab('dashboard',this)">Dashboard</button><button onclick="adminTab('products',this)">Products & Stock</button><button onclick="adminTab('orders',this)">Orders</button></div><section id="adminDashboard"><div class="stats"><div class="stat"><span class="muted">Total Orders (demo)</span><strong id="statOrders">0</strong></div><div class="stat"><span class="muted">Sales (demo)</span><strong id="statSales">₹0</strong></div><div class="stat"><span class="muted">Menu Items</span><strong id="statProducts">20</strong></div><div class="stat"><span class="muted">Low Stock</span><strong id="statLow">0</strong></div></div><div class="panel" style="margin-top:16px"><h2>Recent orders</h2><div class="tablewrap" id="recentOrders"></div></div></section><section id="adminProducts" class="panel hidden"><div class="sectionhead" style="margin-top:0"><h2>Manage products</h2><span class="pill">Add / Edit stock</span></div><div class="notice">This prototype stores data only in this browser. Live use requires a secure database and admin login.</div><form class="admin-product-form" onsubmit="addProduct(event)"><input id="newName" placeholder="Product name" required><input id="newPrice" type="number" min="1" placeholder="Price ₹" required><input id="newStock" type="number" min="0" placeholder="Stock" required><button class="primary">+ Add</button></form><div class="tablewrap" id="productTable"></div></section><section id="adminOrders" class="panel hidden"><h2>All orders</h2><div class="tablewrap" id="ordersTable"></div></section></main>
+<div class="foot">Demo concept for RISHX Digital • Not affiliated with or an official Amul service.<br>Sample products, prices, stock and payment status are for demonstration only.</div><div id="modalRoot"></div><div id="toastRoot"></div>
+<script>
+// IMPORTANT: Replace this with the shop owner's real UPI ID before testing live payments.
+const SHOP_UPI_ID = "raghavendrabelvai8@okicici";
+const SHOP_UPI_NAME = "Amul Ice Cream";
+
+const defaultProducts=[
+{id:1,name:'Vanilla',category:'Cornet',price:40,stock:50,emoji:'🍦'},
+{id:2,name:'Butterscotch',category:'Cornet',price:40,stock:50,emoji:'🍦'},
+{id:3,name:'Strawberry',category:'Cornet',price:40,stock:50,emoji:'🍓'},
+{id:4,name:'Oreo',category:'Cornet',price:40,stock:50,emoji:'🍪'},
+{id:5,name:'Black Current',category:'Cornet',price:40,stock:50,emoji:'🫐'},
+{id:6,name:'Chocolate',category:'Cornet',price:40,stock:50,emoji:'🍫'},
+{id:7,name:'Mango Candy',category:'Candy',price:10,stock:50,emoji:'🥭'},
+{id:8,name:'Orange Candy',category:'Candy',price:10,stock:50,emoji:'🍊'},
+{id:9,name:'Mango Dolly',category:'Dolly',price:20,stock:50,emoji:'🥭'},
+{id:10,name:'Strawberry Dolly',category:'Dolly',price:20,stock:50,emoji:'🍓'},
+{id:11,name:'Chocobar',category:'Bars',price:30,stock:50,emoji:'🍫'},
+{id:12,name:'Frostik',category:'Bars',price:40,stock:50,emoji:'🍫'},
+{id:13,name:'Ice Cream Cup ₹10',category:'Cups',price:10,stock:50,emoji:'🍨'},
+{id:14,name:'Ice Cream Cup ₹20',category:'Cups',price:20,stock:50,emoji:'🍨'},
+{id:15,name:'Ball Ice Cream',category:'Other',price:25,stock:50,emoji:'🍨'},
+{id:16,name:'Ice Cream Sandwich',category:'Other',price:40,stock:50,emoji:'🍪'},
+{id:17,name:'Gudbud (Regular)',category:'Desserts',price:40,stock:50,emoji:'🍨'},
+{id:18,name:'Gudbud (Large)',category:'Desserts',price:60,stock:50,emoji:'🍨'},
+{id:19,name:'Cassata',category:'Desserts',price:70,stock:50,emoji:'🍰'},
+{id:20,name:'Epic',category:'Bars',price:60,stock:50,emoji:'🍦'}
+];
+function loadDemo(key,fallback){try{const value=localStorage.getItem('amulDemo_'+key);return value?JSON.parse(value):fallback}catch{return fallback}}
+let products=loadDemo('products_v3',defaultProducts),cart={},orders=loadDemo('orders_v2',[]),activeFilter='All';
+if(!products.some(p=>p.name.toLowerCase()==='epic')) products.push({id:20,name:'Epic',category:'Bars',price:60,stock:50,emoji:'🍦'});
+function saveDemoData(){try{localStorage.setItem('amulDemo_products_v3',JSON.stringify(products));localStorage.setItem('amulDemo_orders_v2',JSON.stringify(orders))}catch(e){console.warn('Demo data could not be saved',e)}}
+const rupee=n=>'₹'+Number(n).toLocaleString('en-IN');function toast(s){let r=document.getElementById('toastRoot');r.innerHTML='<div class="toast">'+s+'</div>';setTimeout(()=>r.innerHTML='',2600)}
+function showView(v){
+  const views = ['home','shop','admin'];
+  views.forEach(name => {
+    const el = document.getElementById(name + 'View');
+    if (el) el.classList.toggle('hidden', name !== v);
+  });
+  ['home','shop','admin'].forEach(name => {
+    const nav = document.getElementById(name + 'Nav');
+    if (nav) nav.classList.toggle('active', name === v);
+  });
+  if (v === 'shop') {
+    renderProducts();
+    renderCart();
+  }
+  if (v === 'admin') renderAdmin();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function filterProducts(cat,btn){activeFilter=cat;document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderProducts()}
+function renderProducts(){let list=products.filter(p=>activeFilter==='All'||p.category===activeFilter);document.getElementById('itemCount').textContent=list.length+' treats';document.getElementById('products').innerHTML=list.map(p=>`<article class="product"><div class="pic">${p.emoji}</div><span class="pill">${p.category}</span><h3>${p.name}</h3><div class="muted">${p.stock>0?'In stock: '+p.stock:'Currently unavailable'}</div><div class="productrow"><div class="price">${rupee(p.price)}</div><button class="add" ${p.stock<1?'disabled style="opacity:.5"':''} onclick="addToCart(${p.id})">+ Add</button></div></article>`).join('')}
+function addToCart(id){let p=products.find(x=>x.id===id);if(!p||p.stock<1)return toast('Sorry, this item is out of stock.');if((cart[id]||0)>=p.stock)return toast('Available stock limit reached.');cart[id]=(cart[id]||0)+1;renderCart();toast(p.name+' added to cart')}
+function changeQty(id,d){let p=products.find(x=>x.id===id);cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];if(cart[id]>p.stock)cart[id]=p.stock;renderCart()}
+function renderCart(){let ids=Object.keys(cart),count=ids.reduce((s,id)=>s+cart[id],0),sub=ids.reduce((s,id)=>s+products.find(p=>p.id==id).price*cart[id],0),tax=Math.round(sub*.0);document.getElementById('cartCount').textContent=count+' item'+(count===1?'':'s');document.getElementById('cartItems').innerHTML=ids.length?ids.map(id=>{let p=products.find(x=>x.id==id);return `<div class="cartline"><div><strong>${p.emoji} ${p.name}</strong><div class="muted">${rupee(p.price)} each</div></div><div style="text-align:right"><strong>${rupee(p.price*cart[id])}</strong><div class="qty"><button onclick="changeQty(${id},-1)">−</button><span>${cart[id]}</span><button onclick="changeQty(${id},1)">+</button></div></div></div>`}).join(''):'<p class="muted">Your cart is empty. Add a treat to get started!</p>';document.getElementById('subtotal').textContent=rupee(sub);document.getElementById('taxes').textContent=rupee(tax);document.getElementById('grandTotal').textContent=rupee(sub+tax)}
+function checkout(){if(!Object.keys(cart).length)return toast('Add an ice cream to your cart first.');let amount=Object.keys(cart).reduce((s,id)=>s+products.find(p=>p.id==id).price*cart[id],0);let lines=Object.keys(cart).map(id=>`${cart[id]} × ${products.find(p=>p.id==id).name}`).join(', ');document.getElementById('modalRoot').innerHTML=`<div class="modalbg" onclick="if(event.target===this)closeModal()"><div class="modal"><button class="close" onclick="closeModal()">✕</button><div class="eyebrow">Almost there</div><h2>Confirm your order</h2><p>${lines}</p><h2>Total: ${rupee(amount)}</h2><div class="field"><label>Your name</label><input id="custName" placeholder="Enter name" required></div><div class="field"><label>Pickup preference</label><select id="pickup"><option>Pickup now (confirm with staff)</option><option>Pickup in 10–15 minutes</option></select></div><button class="primary" style="width:100%" onclick="goPayment(${amount},'order')">Choose payment method</button><p class="muted">Demo only: no actual payment will be charged.</p></div></div>`}
+function openDirectPayment(){document.getElementById('modalRoot').innerHTML=`<div class="modalbg" onclick="if(event.target===this)closeModal()"><div class="modal"><button class="close" onclick="closeModal()">✕</button><div class="eyebrow">In-store purchase</div><h2>Direct payment</h2><p class="muted">For customers who want to pay directly without placing a menu order.</p><div class="field"><label>Payment Amount (₹)</label><input id="directAmount" type="number" min="1" placeholder="e.g. 80"></div><button class="primary blue" style="width:100%" onclick="goPayment(Number(document.getElementById('directAmount').value),'direct')">Payment Continue</button><p class="notice" style="margin-top:14px">Add the shop owner’s real UPI ID in index.html. Payment is not verified automatically.</p></div></div>`}
+function createUpiLink(amount, note){
+  const params = new URLSearchParams({
+    pa: SHOP_UPI_ID,
+    pn: SHOP_UPI_NAME,
+    am: Number(amount).toFixed(2),
+    cu: "INR",
+    tn: note
+  });
+  return "upi://pay?" + params.toString();
+}
+function openUpiPayment(link){
+  // Direct user-initiated navigation lets supported mobile browsers hand the UPI URI to an installed app.
+  window.location.href = link;
+}
+function copyShopUpiId(){
+  if(!SHOP_UPI_ID || SHOP_UPI_ID==="YOUR_SHOP_UPI_ID_HERE" || !SHOP_UPI_ID.includes("@")){
+    return toast("Add the shop's real UPI ID in index.html first.");
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(SHOP_UPI_ID).then(()=>toast("Shop UPI ID copied.")).catch(()=>prompt("Copy the shop UPI ID:",SHOP_UPI_ID));
+  }else{
+    prompt("Copy the shop UPI ID:",SHOP_UPI_ID);
+  }
+}
+function goPayment(amount,type){
+  if(!Number.isFinite(amount)||amount<1)return toast('Please enter a valid amount.');
+  if(SHOP_UPI_ID==="REPLACE_WITH_SHOP_UPI_ID" || SHOP_UPI_ID==="YOUR_SHOP_UPI_ID_HERE" || !SHOP_UPI_ID.includes("@")){
+    document.getElementById('modalRoot').innerHTML=`<div class="modalbg" onclick="if(event.target===this)closeModal()"><div class="modal"><button class="close" onclick="closeModal()">✕</button><h2>Shop UPI ID Not Added</h2><p>Open index.html in your code editor and replace YOUR_SHOP_UPI_ID_HERE with the shop owner's real UPI ID.</p><p class="notice">Example format only: shopname@upi. Do not use this example to receive payments.</p><button class="primary" style="width:100%" onclick="closeModal()">OK</button></div></div>`;
+    return;
+  }
+  const name=document.getElementById('custName')?.value||'Walk-in customer';
+  const items=type==='order'?Object.keys(cart).map(id=>`${cart[id]} × ${products.find(p=>p.id==id).name}`).join(', ') :'Direct payment';
+  const orderId='AMUL'+String(Date.now()).slice(-6);
+  const link=createUpiLink(amount,orderId+' '+items);
+  document.getElementById('modalRoot').innerHTML=`<div class="modalbg" onclick="if(event.target===this)closeModal()"><div class="modal"><button class="close" onclick="closeModal()">✕</button><div class="eyebrow">UPI PAYMENT</div><h2>Amount to Pay: ${rupee(amount)}</h2><p>Tap the button below to open a UPI payment app available on your phone. Check the shop name and amount before confirming the payment.</p><button class="primary" style="display:block;width:100%;margin:16px 0" type="button" onclick="openUpiPayment(${JSON.stringify(link)})">Open UPI Payment App</button><p class="notice">On a phone, this opens a compatible UPI app if the browser and device support UPI links. If nothing opens, use the QR code below with another phone.</p><h3 style="text-align:center;margin:18px 0 6px">Scan to Pay with Another Phone</h3><p style="text-align:center;font-size:14px">The amount is pre-filled. Check the receiver and amount before paying.</p><div style="display:flex;justify-content:center;margin:12px 0"><img alt="UPI payment QR code" width="220" height="220" style="max-width:100%;border:1px solid #ddd;border-radius:12px;padding:8px;background:white" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=10&data=${encodeURIComponent(link)}"></div><p style="text-align:center"><button class="secondary" type="button" onclick="copyShopUpiId()">Copy Shop UPI ID</button></p><p>After paying, return to this website and tap the button below.</p><button class="primary blue" style="width:100%;margin-top:12px" onclick='submitForVerification(${JSON.stringify(orderId)},${JSON.stringify(name)},${JSON.stringify(items)},${Number(amount)},${JSON.stringify(type)})'>I Have Paid — Submit for Verification</button><p class="muted">This order will be saved as “Payment Verification Pending”. The shop owner should mark it “Paid” only after confirming receipt in their UPI app.</p></div></div>`;
+}
+function submitForVerification(orderId,name,items,amount,type){
+  const record={id:orderId,name,items,amount,status:'Pending verification',date:new Date().toLocaleString('en-IN')};
+  if(type==='order'){
+    orders.unshift(record);
+    Object.keys(cart).forEach(id=>{products.find(p=>p.id==id).stock=Math.max(0,products.find(p=>p.id==id).stock-cart[id])});
+    cart={};renderCart();renderProducts();saveDemoData();
+  }else{
+    orders.unshift(record);saveDemoData();
+  }
+  document.getElementById('modalRoot').innerHTML=`<div class="modalbg"><div class="modal"><div class="success"><div style="font-size:44px">⏳</div><h2>Payment Verification Pending</h2><p>Order ID: <strong>${orderId}</strong></p><h2>${rupee(amount)}</h2><p>The order will be confirmed only after the shop owner verifies that the payment was received in their UPI app.</p></div><button class="primary" style="width:100%;margin-top:16px" onclick="closeModal();showView('shop')">OK</button></div></div>`;
+  renderAdmin();
+}
+function closeModal(){document.getElementById('modalRoot').innerHTML=''}
+function adminTab(tab,btn){document.querySelectorAll('.adminbar button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');['Dashboard','Products','Orders'].forEach(x=>document.getElementById('admin'+x).classList.toggle('hidden',x.toLowerCase()!==tab));renderAdmin()}
+function renderAdmin(){document.getElementById('statOrders').textContent=orders.length;document.getElementById('statSales').textContent=rupee(orders.reduce((s,o)=>s+o.amount,0));document.getElementById('statProducts').textContent=products.length;document.getElementById('statLow').textContent=products.filter(p=>p.stock<10).length;let table=orders.length?`<table><thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Amount</th><th>Status</th></tr></thead><tbody>${orders.map(o=>`<tr><td>${o.id}</td><td>${o.name}</td><td>${o.items}</td><td>${rupee(o.amount)}</td><td><span class="status">${o.status}</span></td></tr>`).join('')}</tbody></table>`:'<p class="muted">No orders yet. Place a demo order from the customer menu to see it here.</p>';document.getElementById('recentOrders').innerHTML=table;document.getElementById('ordersTable').innerHTML=table;document.getElementById('productTable').innerHTML=`<table><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Action</th></tr></thead><tbody>${products.map(p=>`<tr><td>${p.emoji} ${p.name}</td><td>${p.category}</td><td>${rupee(p.price)}</td><td><input aria-label="stock" type="number" min="0" value="${p.stock}" style="width:75px;padding:7px;border:1px solid var(--line);border-radius:8px" onchange="updateStock(${p.id},this.value)"></td><td><button class="secondary" onclick="editPrice(${p.id})">Edit price</button></td></tr>`).join('')}</tbody></table>`}
+function updateStock(id,val){products.find(p=>p.id===id).stock=Math.max(0,Number(val)||0);renderProducts();renderAdmin();saveDemoData();toast('Stock updated in demo.')}
+function editPrice(id){let p=products.find(x=>x.id===id),v=prompt('New price for '+p.name,p.price);if(v!==null&&Number(v)>0){p.price=Number(v);renderProducts();renderAdmin();saveDemoData();toast('Price updated in demo.')}}
+function addProduct(e){e.preventDefault();let name=document.getElementById('newName').value,price=Number(document.getElementById('newPrice').value),stock=Number(document.getElementById('newStock').value);products.push({id:Date.now(),name,category:'Cups',price,stock,emoji:'🍦'});e.target.reset();renderProducts();renderAdmin();saveDemoData();toast('Product added in demo.')}
+saveDemoData();renderProducts();renderCart();renderAdmin();
+</script></body></html>
